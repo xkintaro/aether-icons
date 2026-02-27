@@ -12,6 +12,8 @@
     <br />
     Clean, consistent, and easy to use.
     <br />
+    <br />
+    <a href="https://xkintaro.github.io/aether-icons/">Live Preview</a>
   </p>
 </div>
 
