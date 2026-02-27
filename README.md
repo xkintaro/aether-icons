@@ -13,7 +13,10 @@
     Clean, consistent, and easy to use.
     <br />
     <br />
-    <a href="https://xkintaro.github.io/aether-icons/" target="_blank">Live Preview</a>
+    <a href="https://xkintaro.github.io/aether-icons/" target="_blank">GitHub Pages Preview</a>
+    <br />
+    <br />
+    <a href="https://aether-icons.vercel.app/" target="_blank">Vercel Preview</a>
   </p>
 </div>
 
