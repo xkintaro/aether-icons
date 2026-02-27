@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aether Icons</title>
+  <meta name="description"
+    content="Aether Icons — A refined, modern SVG icon collection. Clean, consistent, and easy to use." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ==========================================
+         DESIGN TOKENS
+         ========================================== */
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #111118;
+      --bg-card: #16161f;
+      --bg-card-hover: #1e1e2a;
+      --bg-surface: rgba(255, 255, 255, 0.03);
+
+      --accent-gold: #c8a55a;
+      --accent-gold-light: #e4c97d;
+      --accent-gold-dim: rgba(200, 165, 90, 0.15);
+      --accent-gold-glow: rgba(200, 165, 90, 0.3);
+
+      --text-primary: #e8e6e1;
+      --text-secondary: #9a9890;
+      --text-muted: #5a584f;
+
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --border-accent: rgba(200, 165, 90, 0.25);
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+
+      --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.4);
+      --shadow-glow: 0 0 40px rgba(200, 165, 90, 0.08);
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    /* ==========================================
+         RESET & BASE
+         ========================================== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ==========================================
+         BACKGROUND EFFECTS
+         ========================================== */
+    .bg-noise {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    .bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(200, 165, 90, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(100, 80, 40, 0.04) 0%, transparent 50%);
+    }
+
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, transparent 20%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 80%, rgba(0, 0, 0, 1) 100%);
+      -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, transparent 20%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 80%, rgba(0, 0, 0, 1) 100%);
+    }
+
+    /* ==========================================
+         LAYOUT
+         ========================================== */
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================
+         HEADER / HERO
+         ========================================== */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px 6px 10px;
+      background: var(--accent-gold-dim);
+      border: 1px solid var(--border-accent);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent-gold-light);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    .hero__badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease-out 0.1s both;
+    }
+
+    .hero__title-accent {
+      background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--accent-gold) 50%, #a88540 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero__subtitle {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 40px;
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #a88540 100%);
+      color: #0a0a0f;
+      box-shadow: 0 2px 12px rgba(200, 165, 90, 0.25);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(200, 165, 90, 0.35);
+    }
+
+    .btn--primary:active {
+      transform: translateY(0);
+    }
+
+    .btn--ghost {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--border-accent);
+      color: var(--text-primary);
+      background: var(--bg-card-hover);
+    }
+
+    .btn__icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .hero__divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease-out 0.35s both;
+    }
+
+    /* ==========================================
+         SEARCH & STATS
+         ========================================== */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 0 32px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      max-width: 420px;
+    }
+
+    .search-box__icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-box__input {
+      width: 100%;
+      padding: 13px 16px 13px 46px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .search-box__input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-box__input:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px var(--accent-gold-dim);
+    }
+
+    .stats {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .stats__item {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stats__number {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--accent-gold);
+    }
+
+    /* ==========================================
+         ICON GRID
+         ========================================== */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      padding-bottom: 100px;
+      animation: fadeInUp 0.8s ease-out 0.5s both;
+    }
+
+    /* ==========================================
+         ICON CARD
+         ========================================== */
+    .icon-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 28px 12px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .icon-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(200, 165, 90, 0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .icon-card:hover {
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card), var(--shadow-glow);
+    }
+
+    .icon-card:hover::before {
+      opacity: 1;
+    }
+
+    .icon-card:active {
+      transform: translateY(-2px) scale(0.98);
+    }
+
+    .icon-card__icon {
+      width: 28px;
+      height: 28px;
+      color: var(--text-secondary);
+      transition: all 0.35s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .icon-card:hover .icon-card__icon {
+      color: var(--accent-gold-light);
+      filter: drop-shadow(0 0 8px rgba(200, 165, 90, 0.4));
+      transform: scale(1.15);
+    }
+
+    .icon-card__name {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-align: center;
+      word-break: break-all;
+      line-height: 1.4;
+      transition: color 0.35s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .icon-card:hover .icon-card__name {
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================
+         ICON DETAIL MODAL
+         ========================================== */
+    .icon-detail-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2500;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .icon-detail-overlay--visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .icon-detail {
+      width: 100%;
+      max-width: 400px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transform: translateY(24px) scale(0.95);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 80px rgba(200, 165, 90, 0.05);
+    }
+
+    .icon-detail-overlay--visible .icon-detail {
+      transform: translateY(0) scale(1);
+    }
+
+    .icon-detail__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px 16px;
+    }
+
+    .icon-detail__name {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .icon-detail__close {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+
+    .icon-detail__close:hover {
+      color: var(--text-primary);
+      border-color: var(--border-accent);
+    }
+
+    .icon-detail__close svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .icon-detail__preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: var(--bg-card);
+      margin: 0 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .icon-detail__preview svg,
+    .icon-detail__preview i {
+      width: 56px;
+      height: 56px;
+      color: var(--accent-gold-light);
+      filter: drop-shadow(0 0 16px rgba(200, 165, 90, 0.25));
+    }
+
+    .icon-detail__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 20px 24px 24px;
+    }
+
+    .icon-detail__btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      text-align: left;
+    }
+
+    .icon-detail__btn:hover {
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
+      transform: translateX(4px);
+    }
+
+    .icon-detail__btn:active {
+      transform: translateX(2px) scale(0.99);
+    }
+
+    .icon-detail__btn-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+
+    .icon-detail__btn-text {
+      flex: 1;
+    }
+
+    .icon-detail__btn-label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .icon-detail__btn-sub {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-family: var(--font-mono);
+    }
+
+    .hero__social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+      animation: fadeInUp 0.8s ease-out 0.32s both;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 100px;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .social-link:hover {
+      border-color: var(--border-accent);
+      color: var(--text-primary);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-link__icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================
+         TOAST NOTIFICATION
+         ========================================== */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(120px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(200, 165, 90, 0.1);
+      z-index: 1000;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .toast--visible {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast__icon {
+      width: 18px;
+      height: 18px;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+
+    .toast__code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-gold-light);
+      background: var(--accent-gold-dim);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* ==========================================
+         EMPTY STATE
+         ========================================== */
+    .empty-state {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .empty-state__icon {
+      width: 48px;
+      height: 48px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    .empty-state__text {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .empty-state__text strong {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    /* ==========================================
+         MODAL OVERLAY & TUTORIAL
+         ========================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .modal-overlay--visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 620px;
+      max-height: 85vh;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transform: translateY(30px) scale(0.95);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 80px rgba(200, 165, 90, 0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-overlay--visible .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-shrink: 0;
+    }
+
+    .modal__title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .modal__close {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .modal__close:hover {
+      color: var(--text-primary);
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
+    }
+
+    .modal__close svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .modal__body {
+      padding: 28px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal__body::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .modal__body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .modal__body::-webkit-scrollbar-thumb {
+      background: var(--text-muted);
+      border-radius: 100px;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      padding-bottom: 32px;
+      position: relative;
+    }
+
+    .step:last-child {
+      padding-bottom: 0;
+    }
+
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 17px;
+      top: 44px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--border-accent), var(--border-subtle));
+    }
+
+    .step__number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent-gold-dim);
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-gold-light);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step__content {
+      flex: 1;
+      padding-top: 4px;
+    }
+
+    .step__title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .step__desc {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .code-block {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .code-block .tag {
+      color: #7faacc;
+    }
+
+    .code-block .attr {
+      color: #c89b6a;
+    }
+
+    .code-block .val {
+      color: #a3be8c;
+    }
+
+    .code-block .comment {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .code-block__copy {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      opacity: 0;
+    }
+
+    .code-block:hover .code-block__copy {
+      opacity: 1;
+    }
+
+    .code-block__copy:hover {
+      color: var(--accent-gold-light);
+      border-color: var(--border-accent);
+    }
+
+    .code-block__copy svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .step__note {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: var(--accent-gold-dim);
+      border: 1px solid rgba(200, 165, 90, 0.12);
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      color: var(--accent-gold-light);
+      line-height: 1.55;
+    }
+
+    .step__note-icon {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      opacity: 0.8;
+    }
+
+    .modal__footer {
+      padding: 16px 28px 20px;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .modal__footer-text {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .modal__footer-text strong {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    /* ==========================================
+         FOOTER
+         ========================================== */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background: linear-gradient(180deg, transparent 0%, var(--bg-primary) 40%);
+      padding: 40px 0 20px;
+      pointer-events: none;
+    }
+
+    .footer__text {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================
+         ANIMATIONS
+         ========================================== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes cardReveal {
+      from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .icon-card {
+      animation: cardReveal 0.5s ease-out both;
+    }
+
+    /* ==========================================
+         RESPONSIVE
+         ========================================== */
+    @media (max-width: 768px) {
+      .geometric-line {
+        display: none;
+      }
+
+      .hero {
+        padding: 50px 0 40px;
+      }
+
+      .icon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 8px;
+      }
+
+      .icon-card {
+        padding: 22px 8px 16px;
+      }
+
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-box {
+        max-width: 100%;
+      }
+
+      .stats {
+        justify-content: center;
+      }
+
+      .hero__actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .modal {
+        max-height: 90vh;
+      }
+
+      .modal__body {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .icon-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* ==========================================
+         SCROLLBAR
+         ========================================== */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--text-muted);
+      border-radius: 100px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-gold);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background Effects -->
+  <div class="bg-noise"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-gradient"></div>
+
+  <!-- Page Content -->
+  <div class="page-wrapper">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        Open Source
+      </div>
+      <h1 class="hero__title">
+        <span class="hero__title-accent">AetherICONS</span><br />
+        Icon Library
+      </h1>
+      <p class="hero__subtitle">
+        A refined, consistent SVG icon collection crafted for modern interfaces.
+        Click any icon to copy its code to your clipboard.
+      </p>
+      <div class="hero__actions">
+        <button class="btn btn--primary" id="btn-tutorial" onclick="openTutorial()">
+          <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          Getting Started
+        </button>
+        <button class="btn btn--ghost" onclick="document.getElementById('search-input').focus()">
+          <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          Browse Icons
+        </button>
+      </div>
+      <div class="hero__social">
+        <a href="https://github.com/xkintaro/aether-icons" class="social-link" id="github-link" target="_blank"
+          rel="noopener noreferrer">
+          <svg class="social-link__icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+        <a href="https://discord.gg/NSQk27Zdkv" class="social-link" id="discord-link" target="_blank"
+          rel="noopener noreferrer">
+          <svg class="social-link__icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+          </svg>
+          Discord
+        </a>
+      </div>
+      <div class="hero__divider"></div>
+    </header>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="search-box">
+        <svg class="search-box__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" class="search-box__input" placeholder="Search icons…" autocomplete="off" />
+      </div>
+      <div class="stats">
+        <div class="stats__item">
+          <span class="stats__number" id="icon-count">0</span>
+          icons
+        </div>
+        <div class="stats__item">
+          <span class="stats__number" id="visible-count">0</span>
+          showing
+        </div>
+      </div>
+    </div>
+
+    <!-- Icon Grid -->
+    <div id="aether-icon-gallery" class="icon-grid"></div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <svg class="toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span>Copied!</span>
+    <span class="toast__code" id="toast-code"></span>
+  </div>
+
+  <!-- Icon Detail Modal -->
+  <div class="icon-detail-overlay" id="icon-detail-modal">
+    <div class="icon-detail">
+      <div class="icon-detail__header">
+        <span class="icon-detail__name" id="icon-detail-name"></span>
+        <button class="icon-detail__close" onclick="closeIconDetail()" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="icon-detail__preview" id="icon-detail-preview"></div>
+      <div class="icon-detail__actions">
+        <button class="icon-detail__btn" id="icon-detail-copy-html">
+          <svg class="icon-detail__btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          <span class="icon-detail__btn-text">
+            <span class="icon-detail__btn-label">Copy HTML Snippet</span>
+            <span class="icon-detail__btn-sub" id="icon-detail-html-code"></span>
+          </span>
+        </button>
+        <button class="icon-detail__btn" id="icon-detail-copy-svg">
+          <svg class="icon-detail__btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span class="icon-detail__btn-text">
+            <span class="icon-detail__btn-label">Copy SVG Code</span>
+            <span class="icon-detail__btn-sub">Full SVG markup</span>
+          </span>
+        </button>
+        <button class="icon-detail__btn" id="icon-detail-download">
+          <svg class="icon-detail__btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span class="icon-detail__btn-text">
+            <span class="icon-detail__btn-label">Download SVG</span>
+            <span class="icon-detail__btn-sub" id="icon-detail-filename"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tutorial Modal -->
+  <div class="modal-overlay" id="tutorial-modal">
+    <div class="modal">
+      <div class="modal__header">
+        <h2 class="modal__title">Getting Started</h2>
+        <button class="modal__close" onclick="closeTutorial()" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal__body">
+        <!-- Step 1 -->
+        <div class="step">
+          <div class="step__number">1</div>
+          <div class="step__content">
+            <h3 class="step__title">Include the Script</h3>
+            <p class="step__desc">
+              Add the <strong>aether-icons.js</strong> file to your project and include it in your HTML. Place it just
+              before the closing <code>&lt;/body&gt;</code> tag.
+            </p>
+            <div class="code-block">
+              <button class="code-block__copy" onclick="copyCode(this)" title="Copy">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </button>
+              <span class="tag">&lt;script</span> <span class="attr">src</span>=<span
+                class="val">"aether-icons.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+            </div>
+
+            <div class="step__note">
+              <svg class="step__note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="16" x2="12" y2="12" />
+                <line x1="12" y1="8" x2="12.01" y2="8" />
+              </svg>
+              That's it — no build tools, no dependencies, no configuration needed.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step">
+          <div class="step__number">2</div>
+          <div class="step__content">
+            <h3 class="step__title">Use an Icon</h3>
+            <p class="step__desc">
+              Place an <code>&lt;i&gt;</code> tag anywhere in your HTML with the <strong>data-aether-icon</strong>
+              attribute set to the icon name.
+            </p>
+            <div class="code-block">
+              <button class="code-block__copy" onclick="copyCode(this)" title="Copy">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </button>
+              <span class="tag">&lt;i</span> <span class="attr">data-aether-icon</span>=<span
+                class="val">"heart"</span><span class="tag">&gt;&lt;/i&gt;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step">
+          <div class="step__number">3</div>
+          <div class="step__content">
+            <h3 class="step__title">Style with CSS</h3>
+            <p class="step__desc">
+              Icons inherit <strong>currentColor</strong> and can be sized using standard CSS properties like
+              <code>width</code>, <code>height</code>, and <code>color</code>.
+            </p>
+            <div class="code-block">
+              <button class="code-block__copy" onclick="copyCode(this)" title="Copy">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </button>
+              <span class="comment">&lt;!-- Red heart, 32px --&gt;</span><br />
+              <span class="tag">&lt;i</span> <span class="attr">data-aether-icon</span>=<span class="val">"heart"</span>
+              <span class="attr">style</span>=<span class="val">"width:32px; height:32px; color:tomato;"</span><span
+                class="tag">&gt;&lt;/i&gt;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal__footer">
+        <p class="modal__footer-text">
+          <strong>AetherICONS</strong> — Zero dependencies. Just drop it in and go.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p class="footer__text">AetherICONS ♡ Kintaro</p>
+  </div>
+
+  <script src="aether-icons.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const gallery = document.getElementById("aether-icon-gallery");
+      const searchInput = document.getElementById("search-input");
+      const iconCountEl = document.getElementById("icon-count");
+      const visibleCountEl = document.getElementById("visible-count");
+
+      if (
+        !window.AetherUI ||
+        !window.AetherUI.Icons ||
+        Object.keys(window.AetherUI.Icons.library).length === 0
+      ) {
+        gallery.innerHTML = `
+            <div class="empty-state">
+              <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <p class="empty-state__text">Icon library <strong>failed to load</strong> or is empty.</p>
+            </div>
+          `;
+        return;
+      }
+
+      const iconNames = Object.keys(window.AetherUI.Icons.library);
+      const totalCount = iconNames.length;
+      iconCountEl.textContent = totalCount;
+      visibleCountEl.textContent = totalCount;
+
+      iconNames.forEach((iconName, index) => {
+        const card = document.createElement("div");
+        card.className = "icon-card";
+        card.setAttribute("data-icon-name", iconName);
+        card.style.animationDelay = `${Math.min(index * 25, 1200)}ms`;
+        card.onclick = () => openIconDetail(iconName);
+
+        const iconEl = document.createElement("i");
+        iconEl.setAttribute("data-aether-icon", iconName);
+        iconEl.className = "icon-card__icon";
+
+        const label = document.createElement("span");
+        label.className = "icon-card__name";
+        label.textContent = iconName;
+
+        card.appendChild(iconEl);
+        card.appendChild(label);
+        gallery.appendChild(card);
+      });
+
+      window.AetherUI.Icons.render(gallery);
+
+      searchInput.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        document.querySelectorAll(".icon-card").forEach((card) => {
+          const name = card.getAttribute("data-icon-name");
+          const match = name.includes(query);
+          card.style.display = match ? "" : "none";
+          if (match) visibleCount++;
+        });
+
+        visibleCountEl.textContent = visibleCount;
+
+        const existingEmpty = gallery.querySelector(".empty-state");
+        if (visibleCount === 0 && !existingEmpty) {
+          const emptyDiv = document.createElement("div");
+          emptyDiv.className = "empty-state";
+          emptyDiv.id = "search-empty";
+          emptyDiv.innerHTML = `
+              <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <p class="empty-state__text">No icons matching "<strong>${e.target.value}</strong>"</p>
+            `;
+          gallery.appendChild(emptyDiv);
+        } else if (visibleCount > 0) {
+          const emptyEl = document.getElementById("search-empty");
+          if (emptyEl) emptyEl.remove();
+        }
+      });
+    });
+
+    let toastTimeout;
+    function showToast(message, code) {
+      const toast = document.getElementById("toast");
+      const toastCode = document.getElementById("toast-code");
+      const toastMsg = toast.querySelector('span:not(.toast__code):not(.toast__icon)');
+      if (toastMsg) toastMsg.textContent = message;
+      toastCode.textContent = code;
+
+      clearTimeout(toastTimeout);
+      toast.classList.add("toast--visible");
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove("toast--visible");
+      }, 2200);
+    }
+
+    function downloadSVG(name) {
+      if (!window.AetherUI || !window.AetherUI.Icons || !window.AetherUI.Icons.library[name]) return;
+
+      const svgMarkup = window.AetherUI.Icons.library[name];
+      const blob = new Blob([svgMarkup], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${name}.svg`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      showToast('Downloaded!', `${name}.svg`);
+    }
+
+    let currentIconName = null;
+
+    function openIconDetail(name) {
+      currentIconName = name;
+      const overlay = document.getElementById('icon-detail-modal');
+      const nameEl = document.getElementById('icon-detail-name');
+      const previewEl = document.getElementById('icon-detail-preview');
+      const htmlCodeEl = document.getElementById('icon-detail-html-code');
+      const filenameEl = document.getElementById('icon-detail-filename');
+
+      nameEl.textContent = name;
+      htmlCodeEl.textContent = `<i data-aether-icon="${name}"></i>`;
+      filenameEl.textContent = `${name}.svg`;
+
+      const svgMarkup = window.AetherUI.Icons.library[name];
+      previewEl.innerHTML = svgMarkup;
+
+      document.getElementById('icon-detail-copy-html').onclick = () => {
+        const snippet = `<i data-aether-icon="${name}"></i>`;
+        navigator.clipboard.writeText(snippet).then(() => {
+          showToast('Copied!', name);
+          closeIconDetail();
+        });
+      };
+
+      document.getElementById('icon-detail-copy-svg').onclick = () => {
+        navigator.clipboard.writeText(svgMarkup).then(() => {
+          showToast('SVG Copied!', name);
+          closeIconDetail();
+        });
+      };
+
+      document.getElementById('icon-detail-download').onclick = () => {
+        downloadSVG(name);
+        closeIconDetail();
+      };
+
+      overlay.classList.add('icon-detail-overlay--visible');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeIconDetail() {
+      document.getElementById('icon-detail-modal').classList.remove('icon-detail-overlay--visible');
+      document.body.style.overflow = '';
+      currentIconName = null;
+    }
+
+    document.getElementById('icon-detail-modal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeIconDetail();
+    });
+
+    function openTutorial() {
+      document.getElementById("tutorial-modal").classList.add("modal-overlay--visible");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeTutorial() {
+      document.getElementById("tutorial-modal").classList.remove("modal-overlay--visible");
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("tutorial-modal").addEventListener("click", (e) => {
+      if (e.target === e.currentTarget) closeTutorial();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeIconDetail();
+        closeTutorial();
+      }
+    });
+
+    function copyCode(btn) {
+      const block = btn.closest(".code-block");
+      const clone = block.cloneNode(true);
+      const copyBtn = clone.querySelector(".code-block__copy");
+      if (copyBtn) copyBtn.remove();
+      const text = clone.textContent.trim();
+
+      navigator.clipboard.writeText(text).then(() => {
+        const origHTML = btn.innerHTML;
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+        btn.style.color = "var(--accent-gold-light)";
+        setTimeout(() => {
+          btn.innerHTML = origHTML;
+          btn.style.color = "";
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+
+</html>
