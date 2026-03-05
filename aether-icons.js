@@ -158,6 +158,8 @@ window.AetherUI.Icons = {
         const svgElement = doc.querySelector("svg");
 
         if (svgElement) {
+          svgElement.setAttribute("aria-hidden", "true");
+
           Array.from(el.attributes).forEach((attr) => {
             if (attr.name === "data-aether-icon") return;
 
