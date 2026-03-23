@@ -11,16 +11,15 @@
     <b>A refined, modern SVG icon collection</b>
     <br />
     Clean, consistent, and easy to use.
-    <br />
-    <br />
-    <a href="https://xkintaro.github.io/aether-icons/" target="_blank">GitHub Pages Preview</a>
-    <br />
-    <br />
-    <a href="https://aether-icons.vercel.app/" target="_blank">Vercel Preview</a>
   </p>
 </div>
 
 ---
+
+## 📷 Demo Links
+
+- [GitHub Pages](https://xkintaro.github.io/aether-icons/)
+- [Vercel](https://aether-icons.vercel.app/)
 
 ## 📋 About
 
