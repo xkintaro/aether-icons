@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="img/favicon.png" alt="Aether Media" width="120" height="120" />
+  <img src="img/favicon.png" width="120" height="120" />
   <br />
   <br />
 
