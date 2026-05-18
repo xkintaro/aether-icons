@@ -14,7 +14,7 @@
   <br />
 
   <p>
-    A clean, consistent, and easy-to-use modern SVG icon collection.
+    Temiz, tutarlı ve kullanımı kolay modern bir SVG ikon koleksiyonu.
   </p>
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -23,9 +23,9 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
   <p>
-    <a href="#usage">Usage</a> •
-    <a href="#license">License</a> •
-    <a href="#gallery">Gallery</a>
+    <a href="#usage">Kullanım</a> •
+    <a href="#license">Lisans</a> •
+    <a href="#gallery">Galeri</a>
   </p>
 
   <br />
@@ -37,29 +37,29 @@
 - [https://xkintaro.github.io/aether-icons/](https://xkintaro.github.io/aether-icons/)
 - [https://aether-icons.vercel.app/](https://aether-icons.vercel.app/)
 
-## 📋 About
+## 📋 Hakkında
 
-**Aether Icons** is a self-contained SVG icon library delivered as a single JavaScript file. It includes 100+ carefully crafted icons, and comes with a built-in browser-based preview page for easy exploration and copy-pasting.
+**Aether Icons**, tek bir JavaScript dosyası olarak sunulan, kendi kendine yeten bir SVG ikon kütüphanesidir. 100'den fazla özenle hazırlanmış ikon içerir ve kolay keşif ile kopyala-yapıştır yapabilmeniz için yerleşik, tarayıcı tabanlı bir önizleme sayfasıyla birlikte gelir.
 
-## <a id="usage"></a>⚙️ Usage
+## <a id="usage"></a>⚙️ Kullanım
 
-There are no build steps or dependencies. Just include the script and use the icons.
+Kurulum adımı veya bağımlılık yoktur. Sadece betiği dahil edin ve ikonları kullanın.
 
-**1. Include the library**
+**1. Kütüphaneyi dahil edin**
 ```html
 <script src="aether-icons.js"></script>
 ```
 
-**2. Render an icon**
+**2. Bir ikonu görüntüleyin**
 ```js
 <i data-aether-icon="heart"></i>
 ```
 
-## <a id="license"></a>📄 License
+## <a id="license"></a>📄 Lisans
 
-This project is licensed under the MIT License. You can check the [LICENSE](LICENSE) file for details.
+Bu proje MIT Lisansı ile lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına göz atabilirsiniz.
 
-## 🖼️ Gallery <a id="gallery"></a>
+## 🖼️ Galeri <a id="gallery"></a>
  
 <img src="img/20260227183456491.jpg" width="100%" />
 
